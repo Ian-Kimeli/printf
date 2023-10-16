@@ -19,4 +19,6 @@ int print_unsigned(va_list args);
 int print_oct(va_list val);
 int print_hex(va_list val);
 int print_HEX(va_list val);
+int print_HEX_extra(unsigned int num);
+int print_exc_string(va_list val);
 #endif
