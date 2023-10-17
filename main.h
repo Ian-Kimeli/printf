@@ -22,4 +22,6 @@ int print_HEX(va_list val);
 int print_HEX_extra(unsigned int num);
 int print_exc_string(va_list val);
 int print_revs(va_list val);
+int get_flags(cost char *format, int *i);
+
 #endif
