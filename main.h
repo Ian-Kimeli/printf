@@ -23,5 +23,5 @@ int print_HEX_extra(unsigned int num);
 int print_exc_string(va_list val);
 int print_revs(va_list val);
 int get_flags(cost char *format, int *i);
-
+int get_width(const char *format, int *i, va_list list);
 #endif
