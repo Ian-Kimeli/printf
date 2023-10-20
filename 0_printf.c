@@ -1,36 +1,54 @@
 #include "main.h"
 #include <stddef.h>
 #include <stdarg.h>
-
 void print_buffer(char buffer[], int *buff_ind);
 
+
+ /* Author: Ian-Kimeli*/
 /**
- * Author: Ian-Kimeli
- * _printf - printf function
+ * _printf - Custom printf function
  * @format: format.
  * Return: printed chars.
  */
 int _printf(const char *format, ...)
 {
+	va_list val;
+	va_start(val, format);
+
+	int length = 0;
 	char *str;
-	int i;
-	int length;
+	int x = 0;
+	int y;
 
-	str = va_arg(val, char *);
-	if (str == NULL)
+	while (format[x] != '\0')
 	{
-		str = "(null)";
-		length = _strlen(str);
-		for (i = 0; i < length; i++)
-			_putchar(str[i]);
-		return (length);
+		if (format[x] == '%')
+		{
+			x++;
+			if (format[x] == 's')
+			{
+				str = va_arg(val, char *);
+				if (str == NULL)
+				{
+					str = "(null)";
+				}
+				y = 0;
+				while (str[y] != '\0')
+				{
+					_putchar(str[y]);
+					length++;
+					y++;
+				}
+			}
+		}
+		else
+		{
+			_putchar(format[x]);
+			length++;
+		}
+		x++;
 	}
-	else
-	{
-		length = _strlen(str);
-		for (i = 0; i < length; i++)
-			_putchar(str[i]);
-		return (length);
-	}
-}
+	va_end(val);
 
+	return (length);
+}	

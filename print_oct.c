@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdio.h>
 /**
  * print_oct - converts to octal
  * @val: variable
@@ -20,7 +21,7 @@ int print_oct(va_list val)
 	counter++;
 	array = malloc(sizeof(int) * counter);
 	if (array == NULL)
-		return (NULL);
+		return (-1);
 	for (i = 0; i < counter; i++)
 	{
 		array[i] = tem % 8;

@@ -12,26 +12,27 @@ int print_bin(va_list val)
 {
 	int flag = 0;
 	int cont = 0;
-	int i, a = 1, b;
+	int j;
 	unsigned int num = va_arg(val, unsigned int);
-	unsigned int p;
 
-	for (i = 0; i < 32; i++)
+	for (j = 31; j >= 0; j--)
 	{
-		p = ((a << (32 - i)) * num);
-		if (p >> (31 - i))
-			flag = 1;
-		if (flag)
+		if ((num >> j) & 1)
 		{
-			b = p >> (31 - i);
-			_putchar(b + 48);
+			flag = 1;
+			_putchar('1');
+			cont++;
+		}
+		else if (flag)
+		{
+			_putchar('0');
 			cont++;
 		}
 	}
 	if (cont == 0)
 	{
+		_putchar('0');
 		cont++;
-		_putchar("0");
 	}
 	return (cont);
 }

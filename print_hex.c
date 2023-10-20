@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdio.h>
 
 /**
  * print_hex - Converts a value to its hexadecimal representation
@@ -19,20 +20,20 @@ int print_hex(va_list val)
 		num = num / 10;
 		counter++;
 	}
-	counter++
-		array = malloc(sizeof(int) * ocounter);
+	counter++;
+	array = malloc(sizeof(int) * counter);
 	if (array == NULL)
-		return (NULL);
+		return (-1);
 	for (i = 0; i < counter; i++)
 	{
 		array[i] = tem % 16;
 		tem = tem / 16;
 	}
-	for (i = counter - 1; i >= 0; i++)
+	for (i = counter - 1; i >= 0; i--)
 	{
 		if (array[i] > 0)
 			array[i] = array[i] + 39;
-		`_putchar(array[i] + '0');
+		_putchar(array[i] + '0');
 	}
 	free(array);
 	return (counter);

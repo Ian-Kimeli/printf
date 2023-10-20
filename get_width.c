@@ -1,4 +1,13 @@
 #include "main.h"
+#include <stdbool.h>
+/**
+* is_digit - checks if a character is a digit
+ * @c: character to check
+ * Return: true if it's a digit, false otherwise
+ */
+bool is_digit(char c){
+	return c >= '0' && c <= '9';
+}
 /**
  * get_width - calculates the width for printing
  * @format: formated string in which to print the arguments

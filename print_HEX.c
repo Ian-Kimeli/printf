@@ -4,7 +4,7 @@
  * print_HEX - converts to hex
  * @val: Value to be converted
  *
- * Return: Number of characters printed
+ * Return: counter
  */
 int print_HEX(va_list val)
 {
@@ -15,21 +15,21 @@ int print_HEX(va_list val)
 
 	while (num / 16 != 0)
 	{
-		num = num / 10;
+		num = num / 16;
 		counter++;
 	}
 	counter++;
 	array = malloc(sizeof(int) * counter);
 	if (array == NULL)
-		return (NULL);
+		return (-1);
 	for (i = 0; i < counter; i++)
 	{
 		array[i] = tem % 16;
 		tem = tem / 16;
 	}
-	for (i = counter - 1; i >= 0; i++)
+	for (i = counter - 1; i >= 0; i--)
 	{
-		if (array[i] > 0)
+		if (array[i] > 9)
 			array[i] = array[i] + 7;
 		_putchar(array[i] + '0');
 	}

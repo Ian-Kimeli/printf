@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdio.h>
 
 /**
  * print_pointer - prints a pointr
@@ -10,19 +11,15 @@ int print_pointer(va_list val)
 {
 	void *p;
 	char *s = "(nil)";
-	long int a;
-	int i, b;
+	int i = 0;
 
 	p = va_arg(val, void *);
-	if (p == NUL)
+	if (p == NULL)
 	{
 		for (i = 0; s[i] != '\0'; i++)
 			_putchar(s[i]);
-		return (i);
+		return i;
 	}
-	a = (unsigned long int)p;
-	_putchar('0');
-	_putchar('+');
-	b = print_hex(a);
-	return (b + 2);
+	printf("0x%p", p);
+	return (i);
 }

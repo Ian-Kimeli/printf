@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdio.h>
 
 /**
  * print_int - prints integer
@@ -18,7 +19,7 @@ int print_int(va_list args)
 	{
 		_putchar('-');
 		num = -num;
-		last - -last;
+		last = -last;
 		i++;
 	}
 	if (num > 0)
